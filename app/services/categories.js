@@ -12,7 +12,7 @@ export default async function categories() {
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',
-			Authorization: 'Basic ' + new Buffer(client_id + ':' + client_secret).toString('base64')
+			Authorization: 'Bearer ' + new Buffer(client_id + ':' + client_secret).toString('base64')
 		}
 	});
 
