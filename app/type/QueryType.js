@@ -1,6 +1,6 @@
 // @flow
 
-import { GraphQLObjectType, GraphQLNonNull, GraphQLString } from 'graphql';
+import { GraphQLObjectType, GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql';
 
 import CategoriesType from './CategoriesType';
 
@@ -11,9 +11,9 @@ export default new GraphQLObjectType({
 	description: 'The root of all... queries',
 	fields: () => ({
 		categories: {
-			type: CategoriesType,
+			type: new GraphQLList(CategoriesType),
 			resolve: async (obj, args, context) => {
-				return await categories();
+				return await categories()
 			}
 		}
 	})

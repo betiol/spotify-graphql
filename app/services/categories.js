@@ -19,14 +19,16 @@ export default async function categories() {
 		};
 	}
 
-	const categories = await response.json().then((res) => res.categories.items);
+	const categoriesData: string = await response.json().then((res) => res.categories.items);
 
-	return categories.map(({ href, id, name }) => {
+	return categoriesData.map(category => {
+		console.log(category)
+
 		return {
-			href,
-			// icons,
-			id,
-			name
+			href: category.href,
+			// icons: category.icons,
+			id: category.id,
+			name: category.name
 		};
 	});
 }

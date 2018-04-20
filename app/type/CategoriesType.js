@@ -12,7 +12,7 @@ export default new GraphQLObjectType({
 		},
 		// icons: {
 		// 	type: GraphQLList,
-		// 	resolve: (obj) => obj.icons
+		// 	resolve: (obj) => { return obj.map(x => x) }
 		// },
 		id: {
 			type: GraphQLString,
