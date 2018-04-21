@@ -23,7 +23,7 @@ export default new GraphQLObjectType({
 		},
 		icons: {
 			type: new GraphQLList(IconType),
-			resolve: (obj) => { return obj.icons }
+			resolve: (obj) => obj.icons
 		},
 		id: {
 			type: GraphQLString,
