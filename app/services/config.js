@@ -8,12 +8,6 @@ var spotifyApi = new SpotifyWebApi({
 async function credentialsAccess() {
     const credentials = await spotifyApi.clientCredentialsGrant()
     const accessToken = await spotifyApi.setAccessToken(credentials.body.access_token)
-    console.log(accessToken)
-}
-
-async function categories() {
-    let data = await credentialsAccess().then(() => spotifyApi.getCategories())
-    let data2 = await data.body.categories
 }
 
 export { credentialsAccess, spotifyApi }

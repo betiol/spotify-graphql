@@ -8,7 +8,7 @@ export default async function categories() {
 	return categoriesData.map((category) => {
 		return {
 			href: category.href,
-			//  icons: category.icons,
+			icons: category.icons,
 			id: category.id,
 			name: category.name
 		};
