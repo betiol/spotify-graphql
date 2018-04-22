@@ -22,7 +22,7 @@ export default new GraphQLObjectType({
 			type: new GraphQLList(AlbumsType),
 			args: {
 				albumId: {
-					type: new GraphQLList(GraphQLString)
+					type: new GraphQLNonNull(new GraphQLList(GraphQLString))
 				}
 			},
 			resolve: async (obj, args, ctx) => {
