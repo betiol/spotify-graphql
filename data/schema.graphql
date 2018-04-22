@@ -1,0 +1,54 @@
+type Categories {
+    href: String,
+    icons: [ImagesType],
+    id: String,
+    name: String
+}
+
+type Albums {
+    album_type: String,
+    images: [ImagesType],
+    artists: [ArtistsType],
+    tracks: [TracksType],
+    external_ids: String,
+    external_urls: String,
+    href: String,
+    id: String,
+    label: String,
+    name: String,
+    popularity: Int,
+    release_date: String,
+    release_date_precision: String,
+    uri: String
+}
+
+type ArtistsType {
+    external_urls: String,
+    href: String,
+    type: String,
+    name: String,
+    id: String,
+    uri: String
+}
+
+type ImagesType {
+    height: Int,
+    width: Int,
+    url: String
+}
+
+type TracksType {
+    artists: [ArtistsType],
+    disc_number: Int,
+    duration_ms: Int,
+    explicit: Boolean,
+    id: String,
+    uri: String,
+    href: String,
+    id: String,
+    is_local: Boolean,
+    name: String,
+    preview_url: String,
+    track_number: Int,
+    type: String
+}

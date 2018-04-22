@@ -20,6 +20,6 @@ export default new GraphQLObjectType({
         name: { type: GraphQLString },
         preview_url: { type: GraphQLString },
         track_number: { type: GraphQLInt },
-        type: { type: GraphQLString },
+        type: { type: GraphQLString }
     }
 })

@@ -1,7 +1,6 @@
 # Spotify GraphQL Query
 
-Basic Query Consult:
-access [Spotify GraphQL](https://graphql-spotify.herokuapp.com)
+[Spotify GraphQL](https://graphql-spotify.herokuapp.com)
 
 ## Albums
 ```
@@ -34,8 +33,6 @@ query {
       disc_number
       duration_ms
       explicit
-      id
-      uri
       href
       id
       is_local
