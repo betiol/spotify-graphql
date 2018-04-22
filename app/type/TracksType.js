@@ -21,6 +21,5 @@ export default new GraphQLObjectType({
         preview_url: { type: GraphQLString },
         track_number: { type: GraphQLInt },
         type: { type: GraphQLString },
-        // available_markets: { type: new GraphQLList(AvailableMarketsType) }
     }
 })

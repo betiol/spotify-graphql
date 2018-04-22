@@ -1,27 +1,66 @@
-# Weather GraphQL Query
+# Spotify GraphQL Query
 
 Basic Query Consult:
-access [Weather GraphQL](https://weather-graphql-hrfpgyvnaz.now.sh/)
+access [Spotify GraphQL](https://graphql-spotify.herokuapp.com)
+
+## Albums
 ```
 query {
-  weatherByCity(city:"Cuiaba") {
-    temp
-    date
-    time
-    condition_code
-    description
-    currently
-    cid
-    city
-    img_id
-    humidity
-    wind_speedy
-    sunrise
-    sunset
-    condition_slug
-    city_name
+  albums(albumId: ["41vPD50kQ7JeamkxQW7Vuy", "5U4W9E5WsYb2jUQWePT8Xm", "3KyVcddATClQKIdtaap4bV"]) {
+    album_type
+    images {
+       width
+       height
+       url
+    }
+    artists {
+      href
+      type
+      name
+      uri
+    }
+    uri
+    release_date
+    release_date_precision
+    popularity
+    name
+    label
+    id
+    href
+    tracks {
+      artists {
+        name
+      }
+      disc_number
+      duration_ms
+      explicit
+      id
+      uri
+      href
+      id
+      is_local
+      name
+      preview_url
+      track_number
+      type
+      uri
+    }
   }
 }
 ```
 
-API BY [HG Brasil](https://hgbrasil.com/)
+## Categories
+```
+query {
+  categories {
+    href
+    icons {
+      height
+      width
+      url
+    }
+    id
+    name
+  }
+}
+```

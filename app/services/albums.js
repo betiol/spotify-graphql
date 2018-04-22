@@ -12,7 +12,6 @@ export default async function albums(albumId: string) {
     let data = await credentialsAccess().then(() => spotifyApi.getAlbums(albumId))
     let albumsData = await data.body.albums
     return albumsData.map((album) => {
-        console.log(album.tracks.items)
         return {
             album_type: album.album_type,
             artists: album.artists,
