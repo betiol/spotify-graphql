@@ -1,10 +1,12 @@
 // @flow
 
-import { GraphQLObjectType, GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql';
+import { GraphQLObjectType, GraphQLInt, GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql';
 
 import CategoriesType from './CategoriesType';
+import AlbumsType from './AlbumsType';
 
 import categories from '../services/categories';
+import albums from '../services/albums'
 
 export default new GraphQLObjectType({
 	name: 'Query',
@@ -12,8 +14,19 @@ export default new GraphQLObjectType({
 	fields: () => ({
 		categories: {
 			type: new GraphQLList(CategoriesType),
-			resolve: async (obj, args, context) => {
+			resolve: async (obj, args, ctx) => {
 				return await categories()
+			}
+		},
+		albums: {
+			type: new GraphQLList(AlbumsType),
+			args: {
+				albumId: {
+					type: new GraphQLList(GraphQLString)
+				}
+			},
+			resolve: async (obj, args, ctx) => {
+				return await albums(args.albumId)
 			}
 		}
 	})

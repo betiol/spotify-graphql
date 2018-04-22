@@ -1,17 +1,7 @@
 // @flow
 
 import { GraphQLList, GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql';
-
-const IconType = new GraphQLObjectType({
-	name: 'IconsType',
-	description: 'TYPES',
-	fields: {
-		height: { type: GraphQLInt },
-		width: { type: GraphQLInt },
-		url: { type: GraphQLString }
-	}
-})
-
+import ImagesType from './ImagesType'
 
 export default new GraphQLObjectType({
 	name: 'CategoriesType',
@@ -22,7 +12,7 @@ export default new GraphQLObjectType({
 			resolve: (obj) => obj.href
 		},
 		icons: {
-			type: new GraphQLList(IconType),
+			type: new GraphQLList(ImagesType),
 			resolve: (obj) => obj.icons
 		},
 		id: {
