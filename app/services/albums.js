@@ -1,15 +1,15 @@
-// @flowx
+// @flow
 import confg from './config'
 import { spotifyApi, credentialsAccess } from './config'
 
-export default async function albums(albumId: string) {
+async function albums(albumId: Array<string>) {
     if (!albumId) {
         return {
             error: 'Invalid album'
         }
     }
 
-    let data = await credentialsAccess().then(() => spotifyApi.getAlbums(albumId))
+    let data: any = await credentialsAccess().then(() => spotifyApi.getAlbums(albumId))
     let albumsData = await data.body.albums
     return albumsData.map((album) => {
         return {
@@ -33,3 +33,5 @@ export default async function albums(albumId: string) {
         };
     });
 }
+
+export { albums }

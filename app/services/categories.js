@@ -2,7 +2,7 @@
 import confg from './config'
 import { spotifyApi, credentialsAccess } from './config'
 
-export default async function categories() {
+async function categories() {
 	let data = await credentialsAccess().then(() => spotifyApi.getCategories())
 	let categoriesData = await data.body.categories.items
 	return categoriesData.map((category) => {
@@ -14,3 +14,18 @@ export default async function categories() {
 		};
 	});
 }
+
+async function categoryByName(name: string) {
+	let data = await credentialsAccess().then(() => spotifyApi.getCategory(name))
+	let categoriesData = await data.body
+	return categoriesData.icons.map((category) => {
+		return {
+			href: categoriesData.href,
+			url: category.url,
+			width: category.width,
+			height: category.height
+		};
+	});
+}
+
+export { categories, categoryByName }

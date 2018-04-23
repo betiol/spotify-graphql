@@ -4,9 +4,9 @@ import { GraphQLObjectType, GraphQLInt, GraphQLList, GraphQLNonNull, GraphQLStri
 
 import CategoriesType from './CategoriesType';
 import AlbumsType from './AlbumsType';
-
-import categories from '../services/categories';
-import albums from '../services/albums'
+import ImagesType from './ImagesType'
+import { categories, categoryByName } from '../services';
+import { albums } from '../services'
 
 export default new GraphQLObjectType({
 	name: 'Query',
@@ -16,6 +16,17 @@ export default new GraphQLObjectType({
 			type: new GraphQLList(CategoriesType),
 			resolve: async (obj, args, ctx) => {
 				return await categories()
+			}
+		},
+		categoryByName: {
+			type: new GraphQLList(ImagesType),
+			args: {
+				name: {
+					type: new GraphQLNonNull(GraphQLString),
+				}
+			},
+			resolve: async (obj, args, ctx) => {
+				return await categoryByName(args.name)
 			}
 		},
 		albums: {

@@ -8,6 +8,7 @@ export default new GraphQLObjectType({
     fields: {
         height: { type: GraphQLInt },
         width: { type: GraphQLInt },
-        url: { type: GraphQLString }
+        url: { type: GraphQLString },
+        href: { type: GraphQLString }
     }
 })
