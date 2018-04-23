@@ -61,3 +61,16 @@ query {
   }
 }
 ```
+
+## Category by name
+```
+query {
+  categoryByName(name: "hiphop") {
+    width
+    href
+    height
+    url
+  }
+}
+```
+
